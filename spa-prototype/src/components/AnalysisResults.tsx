@@ -1,5 +1,5 @@
 import { Typography, Box } from '@mui/material';
-import { LinearRegressionResult } from '../analysis';
+import type { LinearRegressionResult } from '../analysis';
 
 interface AnalysisResultsProps {
   results: LinearRegressionResult | null;

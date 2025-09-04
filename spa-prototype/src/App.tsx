@@ -20,7 +20,8 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import DownloadIcon from '@mui/icons-material/Download';
 import Plot from './components/Plot';
 import AnalysisResults from './components/AnalysisResults';
-import { calculateLinearRegression, LinearRegressionResult } from './analysis';
+import { calculateLinearRegression } from './analysis';
+import type { LinearRegressionResult } from './analysis';
 
 interface DataPoint {
   Absorbance: number;
