@@ -1,0 +1,93 @@
+Requirements
+1) The application will allow the upload of a single sheet excel file with two columns: Absorbance and Concentration.
+2) The application will show a plot the data for the user after upload with absorbance on the x-axis and concentration on the y-axis.
+3) After plotting the data, the application will identify the linear region of the plot and calculate the slope and intercept of the linear fit of that region.
+4) After creating the plot, the application will allow the user to download the plot with both the linear region and the calculated parameters shown on the download.
+5) The application will use Material visual components to build the UI.
+
+Spectrophotometric Calibration Curve App Mockup
+This single-page application is designed with a clean, step-by-step workflow, utilizing Material Design components for a modern and intuitive user experience.
+________________________________________
+1. Initial View / Pre-Upload State
+This is the initial screen the user sees. The interface is clean, with a clear call-to-action to guide the user.
+
++---------------------------------------------------------------------------------+
+| [Accendero Software Logo]  Spectrophotometric Calibration Curve                 |
++---------------------------------------------------------------------------------+
+|                                                                                 |
+|   +-------------------------------------------------------------------------+   |
+|   |  Upload Your Data                                                       |   |
+|   |  ------------------                                                     |   |
+|   |                                                                         |   |
+|   |  [Icon: Cloud Upload]                                                   |   |
+|   |                                                                         |   |
+|   |  Drag & drop your Excel file here or                                    |   |
+|   |                                                                         |   |
+|   |  +------------------------+                                             |   |
+|   |  |   BROWSE FILES         |                                             |   |
+|   |  +------------------------+                                             |   |
+|   |                                                                         |   |
+|   |  *File Requirements:*                                                   |   |
+|   |  - Must be a single-sheet .xlsx file.                                   |   |
+|   |  - Must contain columns named exactly "Absorbance" and "Concentration". |   |
+|   |                                                                         |   |
+|   +-------------------------------------------------------------------------+   |
+|                                                                                 |
+|                                                                                 |
++---------------------------------------------------------------------------------+
+
+Component Breakdown:
+•	App Bar: A standard Material Design app bar displaying the application's title and company logo.
+•	Upload Card: A central, bordered card that serves as the primary interactive element.
+o	Drag & Drop Area: A large, intuitive area for users to drag their files.
+o	Browse Button: A Material Design "Contained Button" for a traditional file-browsing experience.
+o	Instructions: Clear and concise text outlining the specific file requirements to prevent user error.
+________________________________________
+2. Post-Upload & Analysis State
+Once a valid file is uploaded, the view dynamically updates to display the plot and the analysis results. The layout is split into two main sections for clarity.
+
++---------------------------------------------------------------------------------+
+| [Accendero Software Logo]  Spectrophotometric Calibration Curve                 |
++---------------------------------------------------------------------------------+
+|                                                                                 |
+| +-------------------------------------------+ +-------------------------------+ |
+| |  Calibration Curve Plot                   | |  Linear Fit Analysis          | |
+| |  -----------------------                  | |  ---------------------        | |
+| |                                           | |                               | |
+| |      Concentration                        | |  Calculated Parameters:       | |
+| |      ^                                    | |                               | |
+| |      |        *                           | |  Slope (m):                   | |
+| |   20 +      * /                           | |    *15.82*                    | |
+| |      |    * /  *                          | |                               | |
+| |   15 +  * /                               | |  Intercept (b):               | |
+| |      |* /                                 | |    *0.95*                     | |
+| |   10 +/                                   | |                               | |
+| |      |/                                   | |  R-Squared (R²):              | |
+| |    5 +                                    | |    *0.998*                    | |
+| |      +------------------> Absorbance      | |                               | |
+| |        0.5    1.0    1.5                  | |  Equation:                    | |
+| |                                           | |    *y = 15.82x + 0.95*        | |
+| | * Key:                                    | |                               | |
+| |   - Linear Region Points (Blue)           | |                               | |
+| |   - Non-Linear Points (Gray)              | |                               | |
+| |   - Line of Best Fit (Red)                | +-------------------------------+ |
+| |                                           |                                 | |
+| +-------------------------------------------+ +-------------------------------+ |
+|                                               | [Icon: Download] DOWNLOAD PLOT| |
+|                                               +-------------------------------+ |
+|                                                                                 |
++---------------------------------------------------------------------------------+
+
+Component Breakdown:
+•	Plot Card: This card houses the generated graph.
+o	Chart: A clean scatter plot with clearly labeled axes ('Absorbance' on X, 'Concentration' on Y).
+o	Visual Distinction:
+	Points identified as being in the linear region are colored prominently (e.g., blue).
+	A line of best fit is drawn through only the linear region points.
+	Outlier or non-linear points are de-emphasized (e.g., grayed out).
+o	Legend: A simple key explains the color-coding for clarity.
+•	Analysis Card: This card displays the quantitative results derived from the plot.
+o	Parameters: The Slope (m), Y-Intercept (b), and R-Squared (R2) value are displayed clearly. R2 is included as it is a critical measure of fit quality for scientists.
+o	Equation: The resulting linear equation (y=mx+b) is shown for easy reference.
+•	Download Button: A Material Design "Floating Action Button" (FAB) or "Extended FAB" with an icon is used for the primary action: downloading the results.
+o	Functionality: Clicking this button will download a .png or .svg image of the "Plot Card" content, with all data points, the fit line, and the calculated parameters embedded directly on the image for a self-contained, report-ready graphic.
