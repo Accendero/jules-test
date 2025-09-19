@@ -67,3 +67,7 @@ export default tseslint.config([
   },
 ])
 ```
+
+License
+
+This project has no license as it is exploratory code meant for prototyping and educational purposes.
