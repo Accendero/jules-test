@@ -13,8 +13,7 @@ import {
   CssBaseline,
   Button,
   Alert,
-  Grid,
-  IconButton
+  Grid
 } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import DownloadIcon from '@mui/icons-material/Download';
@@ -151,7 +150,7 @@ function App() {
                   backgroundColor: isDragActive ? '#e8f5e9' : 'transparent',
                 }}
               >
-                <input {...getInputProps()} />
+                <input {...getInputProps()} data-testid="dropzone-input" />
                 <CloudUploadIcon sx={{ fontSize: 60, color: 'grey.500' }} />
                 <Typography variant="body1" sx={{ mt: 2 }}>
                   {isDragActive ?
@@ -176,7 +175,7 @@ function App() {
           </Card>
         ) : (
           <Grid container spacing={2}>
-            <Grid item xs={12} md={8} ref={plotCardRef}>
+            <Grid size={{ xs: 12, md: 8 }} ref={plotCardRef}>
               <Card>
                 <CardContent>
                   <Typography variant="h5" component="div" gutterBottom>
@@ -186,7 +185,7 @@ function App() {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <Card>
                 <CardContent>
                   <Typography variant="h5" component="div" gutterBottom>
