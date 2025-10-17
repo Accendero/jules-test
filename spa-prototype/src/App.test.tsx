@@ -22,7 +22,7 @@ describe('App', () => {
     expect(screen.getByRole('button', { name: /Browse Files/i })).toBeInTheDocument();
   });
 
-  it('should display the plot and analysis results when a valid Excel file is uploaded', async () => {
+  it('satisfies FR-01: The application will show the results of the linear fit of the data; slope, intercept and R-squared. ', async () => {
     // Data section
     const testData = [
       { Absorbance: 0.1, Concentration: 0.05 },
@@ -46,8 +46,6 @@ describe('App', () => {
       expect(screen.getByText(/Calibration Curve Plot/i)).toBeInTheDocument();
       expect(screen.getByText(/Linear Fit Analysis/i)).toBeInTheDocument();
     });
-
-    // Verify that the displayed analysis results match the test data
     expect(screen.getByText(`y = ${slope.toFixed(2)}x + ${intercept.toFixed(2)}`)).toBeInTheDocument();
     expect(screen.getByText((_, element) => {
       const hasText = (node: Element) => node.textContent === `R-Squared (R²): ${rSquared.toFixed(4)}`;
