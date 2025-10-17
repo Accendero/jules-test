@@ -1,0 +1,5 @@
+FR-01: The application will show the results of the linear fit of the data; slope, intercept and R-squared. 
+FR-02: The application will allow the upload of a single sheet excel file with two columns: Absorbance and Concentration.
+FR-03: The application will show a plot of the data after upload with absorbance on the x-axis, concentration on the y-axis, one data point per row of the input data and a line of the linear fit.
+FR-04: The application will allow the user to download an image of the plot with both the linear region and the calculated parameters shown on the download.
+FR-05: The application will restrict the linear fit to the linear portion of the input data.
